@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ask Once</title>
+<meta name="description" content="A support-inbox drafter for a legal-transcription app: drafts replies from help pages, holds time-critical, money, confidential and record emails for a person, and flags repeat questions with no page yet. Synthetic data.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="banner" role="note"><strong>Synthetic data.</strong> Fictional customers and help pages written for this demo. Nothing here sends email.</div>
+
+<div class="wrap">
+
+  <header class="top">
+    <p class="kicker">Support inbox drafter</p>
+    <h1>Ask Once</h1>
+    <p class="lede">Two weeks of support email for a legal-transcription app (called "the app" here). Each email goes into one lane. If one help page clearly answers it, a reply is drafted for a person to check and send. Anything time-critical, about money, confidential, about a filed record, or from an upset customer is held for a person. Questions that several accounts keep asking with no help page are flagged. The decisions come from short, fixed rules, not a live model, so each one can be explained in a sentence.</p>
+  </header>
+
+  <section class="result" id="result" aria-live="polite">
+    <p class="result-label">Result</p>
+    <p class="headline" id="headline">Turn on JavaScript to sort the inbox.</p>
+  </section>
+
+  <section aria-labelledby="inbox-h">
+    <h2 id="inbox-h">Inbox, 14 to 25 September</h2>
+    <ul class="chips" id="chips" aria-label="Filter by lane"></ul>
+    <div class="inbox">
+      <div class="list-wrap">
+        <ul class="list" id="list" aria-label="Emails"></ul>
+      </div>
+      <article class="detail" id="detail" aria-live="polite" tabindex="-1">
+        <p class="muted">Pick an email to see its lane, the rule that decided it, and the reply.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="checks" aria-labelledby="checks-h">
+    <h2 id="checks-h">How I checked it</h2>
+    <div class="checks-grid">
+      <div class="card">
+        <h3>The lanes, checked in this order</h3>
+        <p class="section-note small">The first rule that fires decides. The hold rules (the first five) always run before any help page is matched, so a refund or a sealed hearing never gets an automated answer, even when a page matches.</p>
+        <div class="table-scroll">
+          <table class="rules-table">
+            <thead><tr><th>Lane</th><th>Rule</th><th class="num">Rules gave</th><th class="num">My labels</th></tr></thead>
+            <tbody id="lane-table"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Agreement with my hand labels</h3>
+        <p id="agreement"></p>
+        <p class="section-note small">I wrote the labels and the rules together, so this checks that the rules do what I meant. It does not show accuracy on a real inbox.</p>
+        <ul id="disagreements"></ul>
+      </div>
+      <div class="card">
+        <h3>Six edge cases, run live on this page</h3>
+        <p class="section-note small">Each one feeds hand-made emails through the same rules and checks the lane.</p>
+        <ol class="edge" id="edge-cases"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="assumptions" aria-labelledby="assumptions-h">
+    <h2 id="assumptions-h">Assumptions</h2>
+    <ul>
+      <li>The phrase lists, the thresholds and the hold categories are guesses. Real inbox history would replace them.</li>
+      <li>A help page drafts a reply only when it matches at least <span data-setting="minPageScore">2</span> of its phrases and beats the next page by at least <span data-setting="minLead">1</span>. Ties and weak matches go to a person.</li>
+      <li>A question counts as a repeat once <span data-setting="minRepeatAccounts">3</span> different accounts ask it. One account asking several times is one person waiting, not a missing page.</li>
+      <li>"Call now" fires for a proceeding that is live, starts within <span data-setting="callNowMaxMinutes">60</span> minutes, or is this morning with something failing. It assumes the account has a phone number on file and someone is free to call.</li>
+      <li>Matching is plain phrase matching on the subject and body, as whole words. Typos and unusual wording are missed, and those emails fall to a person, which is the safe direction.</li>
+      <li>"Cancel" anywhere holds an email for billing, even "cancel the live link". That's on purpose: a wrong hold costs a person a minute, a wrong automated answer about money costs trust.</li>
+      <li>Watched questions are phrase lists someone sets up after noticing a pattern. The page doesn't discover new topics on its own.</li>
+      <li>The 60 emails, 20 accounts, 8 help pages and the hand labels were written for this demo with AI tools. Times are shown as written, with no time zones.</li>
+    </ul>
+    <details>
+      <summary>See every phrase list</summary>
+      <div id="phrase-lists"></div>
+    </details>
+  </section>
+
+  <section id="questions" aria-labelledby="questions-h">
+    <h2 id="questions-h">Questions I'd want answered</h2>
+    <ol class="questions">
+      <li>Which questions fill the inbox most, and which come by phone instead?</li>
+      <li>When a reporter writes during a live proceeding, what is the fastest path to a person today?</li>
+      <li>Which replies must a person always send, and is anything missing from money, confidential hearings and filed transcripts?</li>
+      <li>Do agency admins and freelance reporters ask different things, and should they get different replies?</li>
+      <li>Where do the answers live today: the docs site, saved replies, or someone's memory?</li>
+    </ol>
+  </section>
+
+  <footer class="foot">
+    <span>Built by Dakshit Raj</span>
+    <a href="gaps.html" id="gaps-link" hidden>What to write next: the repeat questions and the pages they need</a>
+  </footer>
+
+</div>
+
+<script src="data.js"></script>
+<script src="rules.mjs"></script>
+<script src="app.js"></script>
+</body>
+</html>

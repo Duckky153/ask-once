@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ask Once: What to write next</title>
+<meta name="description" content="The repeat questions from a legal-transcription support inbox that no help page answers, ranked by accounts asking, each with a draft help page, a video shot list and a what-if rerun. Synthetic data.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="banner" role="note"><strong>Synthetic data.</strong> Fictional customers and help pages written for this demo. Nothing here sends email.</div>
+
+<div class="wrap">
+
+  <header class="top">
+    <p class="kicker">Ask Once, page 2 &middot; <a href="index.html">Back to the inbox</a></p>
+    <h1>What to write next</h1>
+    <p class="lede">These are the questions that <span data-setting="minRepeatAccounts">3</span> or more different accounts asked when no help page answers them, ranked by how many accounts asked, not how many emails. Each one has a draft help page and a short video plan. Turn on "Pretend this page exists" to rerun the same rules with that page added and see how many emails would then get a drafted reply.</p>
+  </header>
+
+  <section class="result" id="result" aria-live="polite">
+    <p class="result-label">Result</p>
+    <p class="headline" id="headline">Turn on JavaScript to see the repeat questions.</p>
+  </section>
+
+  <div class="whatif" aria-live="polite">
+    <p class="headline" id="whatif-sentence"></p>
+    <p class="tally" id="whatif-tally"></p>
+  </div>
+
+  <div id="clusters"></div>
+
+  <section id="watching" aria-labelledby="watching-h">
+    <h2 id="watching-h">Still watching, not a repeat yet</h2>
+    <div id="watching-list"></div>
+  </section>
+
+  <section id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h">Questions I'd want answered</h2>
+    <ol class="questions">
+      <li>Who writes help pages today, and how often do they change?</li>
+      <li>Do customers watch the videos, or skim the steps?</li>
+      <li>Which reply does someone retype every week?</li>
+    </ol>
+  </section>
+
+  <footer class="foot">
+    <span>Built by Dakshit Raj</span>
+    <a href="index.html">Back to the inbox</a>
+  </footer>
+
+</div>
+
+<script src="data.js"></script>
+<script src="rules.mjs"></script>
+<script src="gaps.js"></script>
+</body>
+</html>
