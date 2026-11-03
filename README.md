@@ -26,7 +26,7 @@ Built with AI assistance (Claude Code / Codex).
 - A "Still watching" note for the foot-pedal question: one account asked three times, so it stays off the list.
 - Three closing questions.
 
-The inbox footer has a link to `gaps.html` (`id="gaps-link"`) that starts hidden, so the second page can be shared later as something new. Remove the link's `hidden` attribute to show it. `gaps.html` works on its own either way.
+The inbox footer has a link to `gaps.html` (`id="gaps-link"`) that starts hidden, so the second page can be shared later as something new. Remove the link's `hidden` attribute to show it. `gaps.html` works on its own either way, and the live page is at https://duckky153.github.io/ask-once/gaps.html.
 
 ## How it works, one sentence per rule
 
