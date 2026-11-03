@@ -415,7 +415,7 @@
 
   // ------------------------------------------------------------------ edge cases
 
-  // Six named checks on hand-made emails, run against the real pages and topics.
+  // Six named checks on purpose-written emails, run against the real pages and topics.
   function edgeCases(data, settings = SETTINGS) {
     const { helpPages: pages, watchTopics: topics } = data;
     const mk = (id, account, subject, body) => ({ id, account, from_first_name: 'Test', role: 'reporter', received: '2026-09-25T12:00', subject, body, hand_label: 'unclear' });

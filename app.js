@@ -151,7 +151,7 @@
       el('h4', { text: 'Lane' }),
       el('div', { class: 'decision' },
         badge(r.lane),
-        el('span', { class: 'muted small', text: agrees ? `My hand label agrees.` : `My hand label said ${A.LANE_BY_ID[e.hand_label].label}.` })),
+        el('span', { class: 'muted small', text: agrees ? `My label agrees.` : `My label said ${A.LANE_BY_ID[e.hand_label].label}.` })),
       el('p', { class: 'reason', text: r.reason }),
     );
 
@@ -215,7 +215,7 @@
       el('td', { class: 'num', text: String(hand[l.id]) }))));
 
     const ag = A.agreement(D.emails, results);
-    $('agreement').textContent = `${ag.agree} of ${ag.total} lanes match the labels I wrote by hand.`;
+    $('agreement').textContent = `${ag.agree} of ${ag.total} lanes match the labels written for this demo.`;
     $('disagreements').replaceChildren(...ag.disagreements.map((d) => {
       const e = emailById.get(d.id);
       const r = resultById.get(d.id);

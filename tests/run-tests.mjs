@@ -68,7 +68,7 @@ test('60 emails, unique ids, known accounts, in time order inside the period', (
   }
 });
 
-test('hand labels follow the intended mix', () => {
+test('labels follow the intended mix', () => {
   const count = (lane) => D.emails.filter((e) => e.hand_label === lane).length;
   assert.deepEqual(
     Object.fromEntries(LANE_IDS.map((l) => [l, count(l)])),
@@ -102,7 +102,7 @@ test('the result sentence is computed from the data', () => {
   assert.match(A.resultSentence(changed), /^Of 30 emails, /);
 });
 
-test('59 of 60 agree with the hand labels, and the one miss errs toward a person', () => {
+test('59 of 60 agree with the labels, and the one miss errs toward a person', () => {
   const ag = A.agreement(D.emails, results);
   assert.equal(ag.agree, 59);
   assert.deepEqual(ag.disagreements, [{ id: 'm41', hand: 'draft', computed: 'money', saferDirection: true }]);

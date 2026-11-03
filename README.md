@@ -15,7 +15,7 @@ Built with AI assistance (Claude Code / Codex).
 3. Lane chips with counts. Clicking one filters the list.
 4. The email list: time, role, subject and lane.
 5. The detail panel for the selected email: the original email, its lane, the rule that decided it (one sentence), any other rules that fired, the matched phrases, the top two help-page scores, and the drafted reply or holding note with a word count and a Copy button.
-6. "How I checked it": the eight lanes in the order they're checked with their counts, agreement with my hand labels (59 of 60), and six named edge cases that run live on the page and show Pass or Fail.
+6. "How I checked it": the eight lanes in the order they're checked with their counts, agreement with my labels (59 of 60), and six named edge cases that run live on the page and show Pass or Fail.
 7. Assumptions, with every phrase list available under "See every phrase list".
 8. Questions I'd want answered about how the real team works.
 
@@ -55,7 +55,7 @@ All thresholds are in one `SETTINGS` block at the top of `rules.mjs`, and the ru
 
 ## How I checked it
 
-- **Agreement:** 59 of 60 lanes match the labels I wrote by hand. I wrote the labels and the rules together, so this checks that the rules do what I meant, not accuracy on a real inbox.
+- **Agreement:** 59 of 60 lanes match the labels written for this demo. The labels and the rules were written together, so this checks that the rules do what I meant, not accuracy on a real inbox.
 - **The one disagreement:** "Wrong attorney" asks how to "cancel or revoke" a live link. I labelled it Draft ready, but "cancel" is on the money list, so it goes to billing. That errs toward a person, and I left it to show the trade-off.
 - **Six edge cases (live on the page):** a refund request that matches a help page goes to a person; "tomorrow" isn't Call now but "in 20 minutes" is; a two-page tie goes to a person; one account asking 3 times makes no repeat; a confidential request that matches the export page goes to a person; an email with no match and no repeat goes to unclear.
 
@@ -82,7 +82,7 @@ On a shared inbox, the same rules would save drafts or apply labels for a person
 node tests/run-tests.mjs
 ```
 
-The tests cover the data shape and intended mix, the computed lane counts and result sentence, hand-label agreement, the six edge cases, Call now timing, hold order, whole-word matching, ties and weak matches, repeat counting by account, the clusters and their outlines, the what-if reruns, the reply templates, and that both pages load only local files with no network calls.
+The tests cover the data shape and intended mix, the computed lane counts and result sentence, label agreement, the six edge cases, Call now timing, hold order, whole-word matching, ties and weak matches, repeat counting by account, the clusters and their outlines, the what-if reruns, the reply templates, and that both pages load only local files with no network calls.
 
 ## Files
 
